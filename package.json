@@ -1,0 +1,16 @@
+{
+  "name": "web-worker-demo",
+  "version": "1.0.0",
+  "description": "Web worker demo",
+  "main": "index.js",
+  "repository": "https://github.com/dguo/web-worker-demo.git",
+  "author": "Danny Guo <danny@dannyguo.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel serve index.html --open"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^1.12.4"
+  }
+}
