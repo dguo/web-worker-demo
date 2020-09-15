@@ -7,6 +7,7 @@
   "author": "Danny Guo <danny@dannyguo.com>",
   "license": "MIT",
   "scripts": {
+    "build": "parcel build index.html",
     "start": "parcel serve index.html --open"
   },
   "dependencies": {
