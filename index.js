@@ -33,7 +33,7 @@ function setPalette(points) {
 
 let worker;
 if (window.Worker) {
-  worker = new Worker("./worker.js");
+  worker = new Worker("worker.js");
   worker.onmessage = function (message) {
     setPalette(message.data.points);
   };
