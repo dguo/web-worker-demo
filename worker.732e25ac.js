@@ -145,4 +145,4 @@ require("../modules/web.immediate"),module.exports=require("../modules/_core").s
 },{"./constants":"TlpJ","./conversion":"T7GD","./distance":"a183","./palette":"usjm","./image":"d99G","./quality":"yZRa","./utils":"MRhM","./basicAPI":"oYDs"}],"iltZ":[function(require,module,exports) {
 "use strict";var e=r(require("image-q"));function t(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return t=function(){return e},e}function r(e){if(e&&e.__esModule)return e;if(null===e||"object"!=typeof e&&"function"!=typeof e)return{default:e};var r=t();if(r&&r.has(e))return r.get(e);var n={},a=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var o in e)if(Object.prototype.hasOwnProperty.call(e,o)){var i=a?Object.getOwnPropertyDescriptor(e,o):null;i&&(i.get||i.set)?Object.defineProperty(n,o,i):n[o]=e[o]}return n.default=e,r&&r.set(e,n),n}onmessage=function(t){var r=e.utils.PointContainer.fromImageData(t.data.imageData),n=e.buildPaletteSync([r],{colors:4});postMessage({points:n._pointArray})};
 },{"image-q":"Eoc4"}]},{},["iltZ"], null)
-//# sourceMappingURL=/worker.732e25ac.js.map
+//# sourceMappingURL=worker.732e25ac.js.map
