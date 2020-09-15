@@ -55,7 +55,13 @@ document
           "color-" + i
         ).style.backgroundColor = pointToRGB(points[i]);
       }
+
+      document.getElementById("loader-wrapper").style.display = "none";
+      document.getElementById("colors-wrapper").style.display = "block";
     };
+
+    document.getElementById("loader-wrapper").style.display = "block";
+    document.getElementById("colors-wrapper").style.display = "none";
 
     image.src = url;
   });
