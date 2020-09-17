@@ -29,6 +29,7 @@ function setPalette(points) {
 
   document.getElementById("loader-wrapper").style.display = "none";
   document.getElementById("colors-wrapper").style.display = "block";
+  document.getElementById("image-link").style.display = "block";
 }
 
 let worker;
@@ -37,8 +38,14 @@ if (window.Worker) {
   worker.onmessage = function (message) {
     setPalette(message.data.points);
   };
-} else {
-  // TODO: show error message
+}
+
+function handleError(message) {
+  const errorMessage = document.getElementById("error-message");
+  errorMessage.innerText = message;
+  errorMessage.style.display = "block";
+  document.getElementById("loader-wrapper").style.display = "none";
+  document.getElementById("image-link").style.display = "none";
 }
 
 document
@@ -48,6 +55,7 @@ document
 
     const url = event.target.elements.url.value;
     const image = document.getElementById("image");
+
     image.onload = function () {
       document.getElementById("image-link").href = url;
 
@@ -63,8 +71,12 @@ document
         image.naturalHeight
       );
 
-      if (worker && event.target.elements.worker.checked) {
-        worker.postMessage({ imageData });
+      if (event.target.elements.worker.checked) {
+        if (worker) {
+          worker.postMessage({ imageData });
+        } else {
+          handleError("Your browser doesn't support Web Workers.");
+        }
         return;
       }
 
@@ -74,10 +86,14 @@ document
       setPalette(points);
     };
 
-    // TODO: handle image error
+    image.onerror = function () {
+      handleError("The image failed to load. Please double check the URL.");
+    };
 
+    document.getElementById("error-message").style.display = "none";
     document.getElementById("loader-wrapper").style.display = "block";
     document.getElementById("colors-wrapper").style.display = "none";
+    document.getElementById("image-link").style.display = "none";
 
     image.src = url;
   });
