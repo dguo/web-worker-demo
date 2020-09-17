@@ -12,6 +12,11 @@
         max-width: max-content;
       }
 
+      #explanation {
+        max-width: 400px;
+        margin-bottom: 40px;
+      }
+
       form {
         margin-top: 25px;
         margin-bottom: 25px;
@@ -67,6 +72,28 @@
   </head>
   <body>
     <div class="center">
+      <h1>Web Worker Demo</h1>
+      <div id="explanation">
+        <p>
+          This demo shows how
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API"
+            >Web Workers</a
+          >
+          can be used to make websites more responsive by offloading
+          CPU-intensive work from the
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Glossary/Main_thread"
+            >main thread</a
+          >. The source code is available on
+          <a href="https://github.com/dguo/web-worker-demo">GitHub</a>.
+        </p>
+        <p>
+          Try generating a color palette from a given image both with and
+          without a worker. Notice that without a worker, the time freezes
+          during the processing, and you can no longer interact with the form.
+        </p>
+      </div>
       <p>The current time is: <span id="time"></span></p>
 
       <form id="image-url-form">
